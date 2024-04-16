@@ -1,5 +1,11 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        if [source, destination] in edges:
+            return True
+        if source == destination:
+            return True
+        if n <= 1:
+            return True
         adj = {}
         for i in edges:
             if i[0] in adj.keys():
