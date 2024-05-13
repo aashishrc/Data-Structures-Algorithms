@@ -7,20 +7,29 @@ class Solution:
         min_val = float('inf')
         left = 0
         right = n-1
-        while left<=right:
-            if nums[left]<=nums[right]:
-                min_val = min(nums[left],min_val)
-                break
-                #left half has smallest elem
+        while left <= right:
+            mid = (left + right)//2
+            #identifying the sorted part
+            if nums[left] <= nums[mid]:
+                min_val = min(min_val, nums[left])
+                left = mid + 1 #eliminating left half
             else:
-                mid = (left+right)//2
-                min_val = min(nums[mid],min_val)
-                if nums[left]<=nums[mid]:
-                    left = mid+1
-                else:
-                    right = mid-1
-                #right half has smallest elem
-        return min_val
+                min_val = min(min_val, nums[mid])
+                right = mid - 1 #eliminating right half
+        # while left<=right:
+        #     if nums[left]<=nums[right]:
+        #         min_val = min(nums[left],min_val)
+        #         break
+        #         #left half has smallest elem
+        #     else:
+        #         mid = (left+right)//2
+        #         min_val = min(nums[mid],min_val)
+        #         if nums[left]<=nums[mid]:
+        #             left = mid+1
+        #         else:
+        #             right = mid-1
+        #         #right half has smallest elem
+        # return min_val
 
 
         #O(n)
