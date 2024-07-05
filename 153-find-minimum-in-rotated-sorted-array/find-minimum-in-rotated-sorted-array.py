@@ -1,24 +1,17 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        #O(logn)
-        n = len(nums)
-        if n==1:
-            return nums[0]
-        min_val = float('inf')
-        left = 0
-        right = n-1
-        while left <= right:
-            mid = (left + right)//2
-            #identifying the sorted part
-            if nums[left] <= nums[mid]:
-                min_val = min(min_val, nums[left])
-                left = mid + 1 #eliminating left half
+        low = 0
+        high = len(nums) - 1
+        res = nums[0] # used to store the minimum 
+        while low <= high:
+            if nums[low] < nums[high]:
+                res = min(res, nums[low])
+                break
+            mid = (low + high)//2
+            res = min(res, nums[mid])
+            if nums[low] <= nums[mid]:
+                low = mid + 1
             else:
-                min_val = min(min_val, nums[mid])
-                right = mid - 1 #eliminating right half
-
-        #O(n)
-        for i in range(len(nums) - 1):
-            if nums[i] > nums[i+1]:
-                return nums[i + 1]
-        return nums[0]
+                high = mid - 1
+        return res
+            
