@@ -4,17 +4,12 @@ class Solution:
             return n
         else:
             tp = n //2
-            print("tp:", tp)
             counter = 0
             #add 1 way at the end when there are 0 2's and all 1's
             for i in range(1, tp + 1):
                 op = n - i*2
-                print("op: ", op)
-                tot_places = op + i
-                print("tot: ", tot_places)
                 #code to find all possibilities
-                counter += self.calc_poss(tot_places, op, i)
-                print("c: ",counter)
+                counter += self.calc_poss(op + i, op, i)
             return counter + 1
 
     def calc_poss(self, tot_places, op, tp):
