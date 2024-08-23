@@ -7,25 +7,17 @@ class Solution:
         flag = False
         for i in range(len(sequence)):
             if word == sequence[i: (i + word_size)]:
-                # flag = True
                 count = 0
                 j = i
                 while j < len(sequence):
-                    # if i == 0:
-                    #     flag = True
-                
                     if word == sequence[j: (j + word_size)]:
-                        print("ini:",i)
-                        # if flag:
-                        #     count += 1
-                        # else:
+                        # print("ini:",i)
                         count += 1
-                        print("incremented count for j : ", j, "and count : ", count)
-                            # flag = True
+                        # print("incremented count for j : ", j, "and count : ", count)
                         j += word_size
-                        print(j, sequence[j:])
+                        # print(j, sequence[j:])
                     else:
                         break
                 dp[i] = count
-        print(dp)
+        # print(dp)
         return max(dp)
