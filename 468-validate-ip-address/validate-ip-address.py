@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: str
         """
         # Regex pattern for validating IPv4
-        ipv4_pattern = re.compile(r'^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}'
+        ipv4_pattern = re.compile(r'^((2[0-4][0-9]|25[0-5]|1[0-9]{2}|[1-9]?[0-9])\.){3}'
                                 r'(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])$')
         
         # Regex pattern for validating IPv6
