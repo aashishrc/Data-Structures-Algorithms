@@ -6,6 +6,18 @@ class Solution:
         :rtype: int
         """
         # A large value greater than the maximum possible number of coins required, even infinity is fine
+        # coins.sort(reverse=True)
+        # count = 0
+        # for i in coins:
+        #     if amount != 0:
+        #         count += amount//i
+        #         amount %= i
+        #     else:
+        #         break
+        # if amount == 0:
+        #     return count
+        # else:
+        #     return -1
         max_value = float('inf')
         n = len(coins)
         
