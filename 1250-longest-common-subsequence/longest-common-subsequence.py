@@ -1,5 +1,6 @@
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        # top-down code
         def LCS(text1: str, text2: str, m, n):
             for i in range(1, n+1):
                 for j in range(1, m+1):
