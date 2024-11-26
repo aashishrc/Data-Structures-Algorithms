@@ -14,7 +14,6 @@ class Solution:
         while temp != None:
             temp = temp.next
             count +=1
-            # print(stack)
         temp = head
         for i in range(count//2):
             temp = temp.next
