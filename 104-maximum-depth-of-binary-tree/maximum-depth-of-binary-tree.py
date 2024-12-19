@@ -4,27 +4,21 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import deque
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0  # If the tree is empty, depth is 0
         
-        stack = [(root, 1)]  # Stack contains nodes and their depth
-        maxDepth = 0
+        q = deque()      
         
-        while stack:
-            node, depth = stack.pop()  # Pop the node and its depth
-            
+        depth = 1
+        maxDepth = -9999
+        q.append((root,1))
+        while q:
+            node,depth = q.popleft()
             if node:
-                # Update the maximum depth
                 maxDepth = max(maxDepth, depth)
-                
-                # Add left and right children to the stack with incremented depth
-                stack.append((node.left, depth + 1))
-                stack.append((node.right, depth + 1))
-        
+                q.append((node.left, depth+1))
+                q.append((node.right, depth+1))  
         return maxDepth
-
-
-            
-
