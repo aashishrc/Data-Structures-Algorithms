@@ -7,19 +7,16 @@
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if not root:
-            return False  # If the main tree is empty, it cannot contain the subtree.
+            return False
         
-        # Check if the trees are identical
         def isSameTree(tree1, tree2):
             if not tree1 and not tree2:
-                return True  # Both trees are empty.
+                return True  
             if not tree1 or not tree2:
-                return False  # One tree is empty, and the other is not.
+                return False  
             if tree1.val != tree2.val:
-                return False  # Values of the roots don't match.
+                return False  
             
-            # Recursively check the left and right subtrees.
             return isSameTree(tree1.left, tree2.left) and isSameTree(tree1.right, tree2.right)
         
-        # Check if subRoot matches the current root, or isSubtree exists in left or right subtree
         return isSameTree(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
