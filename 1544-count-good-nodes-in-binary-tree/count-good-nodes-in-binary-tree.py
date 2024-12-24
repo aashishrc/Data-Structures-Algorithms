@@ -18,7 +18,6 @@ class Solution:
             dfs(root.right)
             if root.val >= max(path_nodes):
                 self.count +=1
-                print(self.count)
             path_nodes.pop()
         dfs(root)
         return self.count
