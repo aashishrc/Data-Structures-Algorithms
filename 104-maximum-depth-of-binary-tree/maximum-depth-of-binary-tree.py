@@ -10,15 +10,17 @@ class Solution:
         if not root:
             return 0  # If the tree is empty, depth is 0
         
-        q = deque()      
+        return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right)) 
         
-        depth = 1
-        maxDepth = -9999
-        q.append((root,1))
-        while q:
-            node,depth = q.popleft()
-            if node:
-                maxDepth = max(maxDepth, depth)
-                q.append((node.left, depth+1))
-                q.append((node.right, depth+1))  
-        return maxDepth
+        # q = deque()      
+        
+        # depth = 1
+        # maxDepth = -9999
+        # q.append((root,1))
+        # while q:
+        #     node,depth = q.popleft()
+        #     if node:
+        #         maxDepth = max(maxDepth, depth)
+        #         q.append((node.left, depth+1))
+        #         q.append((node.right, depth+1))  
+        # return maxDepth
