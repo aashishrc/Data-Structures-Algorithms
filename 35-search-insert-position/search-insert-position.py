@@ -11,11 +11,9 @@ class Solution:
                 return m
             elif nums[m] < target:
                 l = m + 1
-                m = (l + r)//2
-                return binary_search(l, r, m)
             else:
                 r = m - 1
-                m = (l + r)//2
-                return binary_search(l, r, m)
+            m = (l + r)//2
+            return binary_search(l, r, m)
         return binary_search(l,r,m)
                 
